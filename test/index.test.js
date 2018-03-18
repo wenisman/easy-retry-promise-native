@@ -1,7 +1,6 @@
 'use strict'
 
 const retry = require('../src').retry
-jest.useFakeTimers();
 
 describe('retry promises', () => {
   it('should pass working conditions', () => {
@@ -24,16 +23,15 @@ describe('retry promises', () => {
   })
 
   it('should not exceed max timeout', () => {
-    const op = jest.fn(() => { 
-      return Promise.reject({ message: 'failure' }) 
-    })
+    const op = jest.fn(() => { return Promise.reject({ message: 'failure' }) })
 
-    jest.runAllTimers()
-    return retry(op, { maxTimeout: 100, minTimeout: 200, maxAttempts: 1 })()
+    const start = Date.now()
+    return retry(op, { maxTimeout: 100, minTimeout: 200, maxAttempts: 2 })()
       .catch((err) => {
         expect(err.message).toBe('failure')
-        expect(op).toHaveBeenCalledTimes(1)
-        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 100);
+        expect(op).toHaveBeenCalledTimes(2)
+        const lapse = Date.now() - start
+        expect(lapse).toBeLessThan(110);  // give 10ms for extra overheads
       })
   })
 
