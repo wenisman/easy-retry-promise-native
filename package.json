@@ -1,0 +1,41 @@
+{
+  "name": "easy-retry-promise-native",
+  "version": "1.0.0",
+  "description": "A simple retry library using native promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wenisman/easy-retry-promise-native.git"
+  },
+  "keywords": [
+    "retry",
+    "promise",
+    "native"
+  ],
+  "author": "Geoffrey Tsai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wenisman/easy-retry-promise-native/issues"
+  },
+  "homepage": "https://github.com/wenisman/easy-retry-promise-native#readme",
+  "devDependencies": {
+    "jest": "^22.4.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.(js|ts)"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ]
+  }
+}
