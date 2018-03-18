@@ -1,6 +1,6 @@
 'use strict'
 
-const retry = require('../src').retry
+const retry = require('../src')
 
 describe('retry promises', () => {
   it('should pass working conditions', () => {

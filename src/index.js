@@ -54,6 +54,4 @@ const retry  = (operation, options) => {
   return attempt(operation, retryOptions)
 } 
 
-module.exports = {
-  retry
-}
+module.exports = retry
