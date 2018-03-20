@@ -34,7 +34,7 @@ const attempt = (operation, options) => {
       .catch((err) => {
         if (mutOptions.attempts < mutOptions.maxAttempts) {
           const delayTimeout = calculateDuration(mutOptions) 
-          return delay(delayTimeout).then(() => { return attempt(operation, mutOptions)(args) })
+          return delay(delayTimeout).then(() => { return attempt(operation, mutOptions)(...arguments) })
         }
        
         return Promise.reject(err)
@@ -55,3 +55,4 @@ const retry  = (operation, options) => {
 } 
 
 module.exports = retry
+module.exports.default = retry
