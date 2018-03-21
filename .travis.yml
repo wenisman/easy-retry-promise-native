@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '6'
+- '7'
+- '8'
+deploy:
+  provider: npm
+  email: wenisman@hotmail.com
+  api_key:
+    secure: qbU7s/RdHk0rTP3ytFAbBSZcyTC0VhEeb9wmSe8v3+DiieYgh/v7kPrlJBWGS8Pf7JP1ZwtTKM0BrrQh+pt4koys/VK4rrIOmSM7tudzRBPqsQ0n26HlDa/qf3ZBaWROMb4dFEBYdqgTgYCdt/Sd7cv/rELpXVQUQuZGzk0BP6olCwVTCpD/xOfR3eYGdbAHfm8uhZ2zTb/m5jeh6MMdy4k6MeuJPtg7sqrjF4RjEgsp7AL/Cb01gKNPNnJxrFzTXMCueuT4MS5qDr5HrV3HaeAdnz0iauf1Ddt9hFXq4FZeycHunW0G9NQta/EZu7jbWLmxU9UJsApVnMVMGwUkFkFmS9S2Hragvc/wSgi0haeGlX4R2+H8R2nI9yh1/urX/sXf6EXJdKfPgNR32YUziNIwzaIuE7vQ9jxQFo7Lh4XMA/q8+qxjT6K8x9csDP49qy7KhhLx9CUkqCoVfo7ydcZobAabRo098Tqt48tEaUTDa5h15V+vN0tOS6CzuQHQtU35AfHZpYG5HOJkRzq+FOKVOMXtjRVunqGfOnxDipCKohcNzbvQXP1kFYUOwxg94eOrbNt8hQPc/bGfumXooK4FPbZ9GwE1fuIUgtwTjWFZK3jTFfWTPvZ/fL+s8hJGUcpbr7o5VuMvjcMS8g1eN/y4KbDZHYFPKPMtjv2AT80=
+  on:
+    tags: false
+    repo: wenisman/easy-retry-promise-native
+  tag: next
