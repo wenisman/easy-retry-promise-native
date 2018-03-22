@@ -13,7 +13,8 @@
   "keywords": [
     "retry",
     "promise",
-    "native"
+    "native",
+    "functional"
   ],
   "author": "Geoffrey Tsai",
   "license": "MIT",
