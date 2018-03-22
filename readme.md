@@ -29,6 +29,8 @@ There are a few options that can be set
 | minTimeout	| int	| 100	| The smallest amount of time a delay will occur between attempts |
 | maxTimeout	| int	| 1000	| The max amount of time a delay will occur between attempts |
 
+`NOTE: you can set the maxAttempts to either 'inf' or 'infinite' to have it retry forever`
+
 you can pass options as an object when creating the retry 
 
 ```
