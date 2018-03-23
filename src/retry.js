@@ -2,7 +2,7 @@
 
 const createDefaults = (options) => {
   const defaults = {
-    attempts: 0,
+    attempts: 1,
     maxAttempts: 3,
     minTimeout: 100,
     maxTimeout: 1000,
@@ -33,7 +33,6 @@ const isInfinite = (attempts) => {
 
 const attempt = (operation, options) => {
   const mutOptions = { ...options }
-  mutOptions.attempts++
   return function() {
     const args = Array.from(arguments)
 
@@ -42,6 +41,12 @@ const attempt = (operation, options) => {
       .catch((err) => {
         if (isInfinite(mutOptions.maxAttempts) || mutOptions.attempts < mutOptions.maxAttempts) {
           const delayTimeout = calculateDuration(mutOptions) 
+
+          if (!isInfinite(mutOptions.maxAttempts) && delayTimeout <= mutOptions.maxTimeout) {
+            // stop increasing the attempts, its wasting computational logic
+            mutOptions.attempts++
+          }
+        
           return delay(delayTimeout).then(() => { return attempt(operation, mutOptions)(...arguments) })
         }
        
