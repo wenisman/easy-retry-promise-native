@@ -2,7 +2,7 @@
 
 const createDefaults = (options) => {
   const defaults = {
-    attempts: 1,
+    attempts: 0,
     maxAttempts: 3,
     minTimeout: 100,
     maxTimeout: 1000,
@@ -39,7 +39,7 @@ const attempt = (operation, options) => {
     return operation.apply(null, args)
       .then((result) => { return Promise.resolve(result) })
       .catch((err) => {
-        if (isInfinite(mutOptions.maxAttempts) || mutOptions.attempts < mutOptions.maxAttempts) {
+        if (isInfinite(mutOptions.maxAttempts) || mutOptions.attempts < mutOptions.maxAttempts -1) {
           const delayTimeout = calculateDuration(mutOptions) 
 
           if (!isInfinite(mutOptions.maxAttempts) && delayTimeout <= mutOptions.maxTimeout) {
